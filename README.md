@@ -109,3 +109,51 @@ data_analytics_app/
 3. **상품 전략** - 판매량 TOP 5 / 매출 기여도 TOP 5
 4. **지점별 분석** - 지점별 매출, 거래 건수, 인기 상품
 5. **인사이트** - 긍정적 요소 / 개선 포인트 자동 도출
+
+---
+
+## 🗂️ 샘플 데이터
+
+`sample_data_code/` 폴더에 테스트용 CSV 파일과 생성 코드가 포함되어 있습니다.
+
+### 바로 사용하기
+
+`sample_data_code/cvs_sales_with_age_1.csv` 또는 `cvs_sales_with_age_2.csv` 파일을 앱에 직접 업로드하세요.
+
+### 새 샘플 데이터 생성하기
+
+```bash
+cd sample_data_code
+
+# 의존성 설치 (최초 1회)
+pip install pandas numpy
+
+# 샘플 데이터 생성
+python sample_data.py
+# → cvs_sales_with_age.csv 파일이 생성됩니다
+```
+
+### 생성 데이터 스펙
+
+| 항목 | 내용 |
+|------|------|
+| 레코드 수 | 3,000건 (기본값) |
+| 지점 | Gangnam / Sinsa / Mapo / Hongdae / Yeouido |
+| 연령대 | 10s / 20s / 30s / 40s / 50s / 60s+ |
+| 카테고리 | Fresh Food / Beverage / Instant Food / Snack / Alcohol / Tobacco |
+| 결제수단 | Credit Card / Mobile Pay / Cash / Points |
+| 날짜 범위 | 시작일로부터 45일 (랜덤) |
+
+### 커스터마이징
+
+`sample_data.py` 상단의 설정값을 수정하여 원하는 데이터를 생성할 수 있습니다:
+
+```python
+num_records = 3000            # 생성할 레코드 수
+start_date = datetime(2026, 3, 1)  # 시작 날짜
+locations = ['Gangnam', ...]  # 지점 목록
+age_groups = ['10s', ...]     # 연령대 목록
+age_weights = [15, 30, ...]   # 연령대 가중치 (2030세대 편의점 이용 빈도 반영)
+```
+
+> **참고:** 연령대별 카테고리 구매 패턴이 사전 설정되어 있습니다 (10대 → 간식/라면 위주, 40-50대 → 주류/담배 비중 높음).
