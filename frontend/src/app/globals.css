@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 9, 9, 18;
+}
+
+body {
+  background: rgb(9, 9, 18);
+}
+
+/* 커스텀 스크롤바 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #111;
+}
+::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 3px;
+}
+
+/* 글로우 효과 */
+.glow-violet {
+  box-shadow: 0 0 24px rgba(139, 92, 246, 0.25);
+}
+
+/* 채팅 말풍선 애니메이션 */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.chat-bubble {
+  animation: fadeSlideUp 0.25s ease-out;
+}
+
+/* 업로드 드래그 영역 */
+.drop-zone {
+  transition: all 0.2s ease;
+}
+.drop-zone.drag-over {
+  border-color: rgba(139, 92, 246, 0.8);
+  background: rgba(139, 92, 246, 0.06);
+}
