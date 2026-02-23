@@ -20,7 +20,7 @@ import os
 # 백엔드 디렉토리를 경로에 추가
 sys.path.insert(0, os.path.dirname(__file__))
 
-from mcp import Server, StdioServerParameters
+from mcp.server import Server
 from mcp.server.stdio import stdio_server
 from mcp.types import Tool, TextContent
 
